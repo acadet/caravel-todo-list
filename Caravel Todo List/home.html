@@ -37,14 +37,20 @@
           <div data-page="home" class="page">
             <!-- Scrollable page content -->
 
-            <div class="page-content">
+            <div class="page-content pull-to-refresh-content">
+              <!-- Default pull to refresh layer-->
+              <div class="pull-to-refresh-layer">
+                <div class="preloader"></div>
+                <div class="pull-to-refresh-arrow"></div>
+              </div>
+
               <div class="list-block js-list-wrapper">
                 <ul class="js-list">
                   <li class="swipeout js-task-template">
                     <div class="swipeout-content">
                       <label class="label-checkbox item-content">
                         <input type="checkbox" name="tasks">
-                        <div class="item-media">
+                        <div class="item-media js-toggle">
                           <i class="icon icon-form-checkbox"></i>
                         </div>
                         <div class="item-inner">

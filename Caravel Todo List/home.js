@@ -6,7 +6,12 @@ $(document).on('ready', function() {
     var noContent = $('.js-no-content');
     var bus = Caravel.get('Home');
     var template = null;
+    var ptrContent = $$('.pull-to-refresh-content');
     var checkboxes;
+
+    ptrContent.on('refresh', function() {
+        bus.post('Refresh');
+    });
 
     bus.register("Tasks", function(name, data) {
         if (template == null) {
@@ -15,8 +20,10 @@ $(document).on('ready', function() {
             t.remove();
         }
 
+        framework7.pullToRefreshDone();
         taskList.empty();
         checkboxes = {};
+
         if (data.length == 0) {
             listWrapper.hide();
             noContent.show();
@@ -34,12 +41,12 @@ $(document).on('ready', function() {
 
                     checkboxes[e.id] = e.isCompleted;
                     t.on('click', function() {
-                        var v = !checkboxes[e.isCompleted];
+                        var v = !checkboxes[e.id];
                         checkboxes[e.id] = v;
                         bus.post('Complete', {id: e.id, isCompleted: v});
                     });
 
-                    t.find('.js-edit').on('click', function() {
+                    t.find('.js-edit').on('click', function(event) {
                         framework7.prompt(
                             "Enter a new label",
                             "Edit task",
@@ -50,10 +57,11 @@ $(document).on('ready', function() {
                             },
                             function() {} // Ignore
                         );
-                        $('.modal-text-input').val(e.name)
+                        $('.modal-text-input').val(e.label);
+                        event.preventDefault();
                     });
 
-                    t.find('.js-delete').on('click', function() {
+                    t.find('.js-delete').on('click', function(event) {
                         framework7.confirm(
                             "Are you sure you want to delete " + e.label + "?",
                             "Delete task",
@@ -62,6 +70,7 @@ $(document).on('ready', function() {
                             },
                             function() {} // Ignore
                         );
+                        event.preventDefault();
                     });
 
                     taskList.append(t);

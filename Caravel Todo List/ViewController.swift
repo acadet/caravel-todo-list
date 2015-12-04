@@ -35,6 +35,10 @@ class ViewController: UIViewController {
         Caravel.get(self, name: "Home", webView: webView, whenReady: { bus in
             self.bus = bus
             
+            bus.register("Refresh") { _, _ in
+                self.listTasks()
+            }
+            
             bus.register("Add") { _, rawLabel in
                 let label = rawLabel as! String
                 let task = Task()
