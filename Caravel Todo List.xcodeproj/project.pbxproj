@@ -13,6 +13,13 @@
 		A74912681C110EDF00218D73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74912661C110EDF00218D73 /* Main.storyboard */; };
 		A749126A1C110EDF00218D73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A74912691C110EDF00218D73 /* Assets.xcassets */; };
 		A749126D1C110EDF00218D73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A749126B1C110EDF00218D73 /* LaunchScreen.storyboard */; };
+		A749127B1C11151A00218D73 /* framework7.ios.colors.min.css in Resources */ = {isa = PBXBuildFile; fileRef = A74912741C11151A00218D73 /* framework7.ios.colors.min.css */; };
+		A749127C1C11151A00218D73 /* framework7.ios.min.css in Resources */ = {isa = PBXBuildFile; fileRef = A74912751C11151A00218D73 /* framework7.ios.min.css */; };
+		A749127D1C11151A00218D73 /* framework7.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A74912761C11151A00218D73 /* framework7.min.js */; };
+		A749127E1C11151A00218D73 /* home.css in Resources */ = {isa = PBXBuildFile; fileRef = A74912771C11151A00218D73 /* home.css */; };
+		A749127F1C11151A00218D73 /* home.html in Resources */ = {isa = PBXBuildFile; fileRef = A74912781C11151A00218D73 /* home.html */; };
+		A74912801C11151A00218D73 /* home.js in Resources */ = {isa = PBXBuildFile; fileRef = A74912791C11151A00218D73 /* home.js */; };
+		A74912811C11151A00218D73 /* jquery-1.11.3.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A749127A1C11151A00218D73 /* jquery-1.11.3.min.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		A74912691C110EDF00218D73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A749126C1C110EDF00218D73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A749126E1C110EDF00218D73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A74912741C11151A00218D73 /* framework7.ios.colors.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = framework7.ios.colors.min.css; sourceTree = "<group>"; };
+		A74912751C11151A00218D73 /* framework7.ios.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = framework7.ios.min.css; sourceTree = "<group>"; };
+		A74912761C11151A00218D73 /* framework7.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = framework7.min.js; sourceTree = "<group>"; };
+		A74912771C11151A00218D73 /* home.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = home.css; sourceTree = "<group>"; };
+		A74912781C11151A00218D73 /* home.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = home.html; sourceTree = "<group>"; };
+		A74912791C11151A00218D73 /* home.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = home.js; sourceTree = "<group>"; };
+		A749127A1C11151A00218D73 /* jquery-1.11.3.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.11.3.min.js"; sourceTree = "<group>"; };
 		ACDC96D8AC535B55EB500F91 /* Pods-Caravel Todo List.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Caravel Todo List.release.xcconfig"; path = "Pods/Target Support Files/Pods-Caravel Todo List/Pods-Caravel Todo List.release.xcconfig"; sourceTree = "<group>"; };
 		AD77F94D0D0F3FB68E40845B /* Pods_Caravel_Todo_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Caravel_Todo_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -78,6 +92,13 @@
 		A74912611C110EDF00218D73 /* Caravel Todo List */ = {
 			isa = PBXGroup;
 			children = (
+				A74912741C11151A00218D73 /* framework7.ios.colors.min.css */,
+				A74912751C11151A00218D73 /* framework7.ios.min.css */,
+				A74912761C11151A00218D73 /* framework7.min.js */,
+				A74912771C11151A00218D73 /* home.css */,
+				A74912781C11151A00218D73 /* home.html */,
+				A74912791C11151A00218D73 /* home.js */,
+				A749127A1C11151A00218D73 /* jquery-1.11.3.min.js */,
 				A74912621C110EDF00218D73 /* AppDelegate.swift */,
 				A74912641C110EDF00218D73 /* ViewController.swift */,
 				A74912661C110EDF00218D73 /* Main.storyboard */,
@@ -149,9 +170,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A749127C1C11151A00218D73 /* framework7.ios.min.css in Resources */,
+				A749127B1C11151A00218D73 /* framework7.ios.colors.min.css in Resources */,
 				A749126D1C110EDF00218D73 /* LaunchScreen.storyboard in Resources */,
 				A749126A1C110EDF00218D73 /* Assets.xcassets in Resources */,
+				A749127E1C11151A00218D73 /* home.css in Resources */,
+				A749127F1C11151A00218D73 /* home.html in Resources */,
+				A74912801C11151A00218D73 /* home.js in Resources */,
 				A74912681C110EDF00218D73 /* Main.storyboard in Resources */,
+				A74912811C11151A00218D73 /* jquery-1.11.3.min.js in Resources */,
+				A749127D1C11151A00218D73 /* framework7.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
