@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Caravel Todo List
-//
-//  Created by Adrien on 03/12/15.
-//  Copyright © 2015 acadet. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

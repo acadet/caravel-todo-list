@@ -2,7 +2,8 @@ window.framework7 = new Framework7();
 window.$$ = Dom7;
 
 $(document).on('ready', function() {
-    var taskList = $('js-list'), noContent = $('.js-no-content');
+    var taskList = $('.js-list'), listWrapper = $('.js-list-wrapper');
+    var noContent = $('.js-no-content');
     var bus = Caravel.get('Home');
     var template = null;
     var checkboxes;
@@ -17,11 +18,11 @@ $(document).on('ready', function() {
         taskList.empty();
         checkboxes = {};
         if (data.length == 0) {
-            taskList.hide();
+            listWrapper.hide();
             noContent.show();
         } else {
             noContent.hide();
-            taskList.show();
+            listWrapper.show();
 
             for (var i = 0, s = data.length; i < s; i++) {
                 var capture = function(e, t) {
@@ -49,7 +50,7 @@ $(document).on('ready', function() {
             "Enter a label",
             "Add a new task",
             function(value) {
-                if (value.trim().length == 0) {
+                if (value.trim().length != 0) {
                     bus.post("Add", value);
                 }
             },

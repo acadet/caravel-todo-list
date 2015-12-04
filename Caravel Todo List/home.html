@@ -9,7 +9,7 @@
     <!-- Your app title -->
     <title>Caravel TODO List</title>
     <!-- Path to Framework7 Library CSS, iOS Theme -->
-    <link rel="stylesheet" href="ramework7.ios.min.css">
+    <link rel="stylesheet" href="framework7.ios.min.css">
     <!-- Path to Framework7 color related styles, iOS Theme -->
     <link rel="stylesheet" href="framework7.ios.colors.min.css">
     <!-- Path to your custom app styles-->
@@ -26,7 +26,9 @@
             <div class="left"></div>
             <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
             <div class="center sliding">TODO</div>
-            <div class="right js-add">Add</div>
+            <div class="right">
+              <a class="link js-add">Add</a>
+            </div>
           </div>
         </div>
         <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
@@ -36,7 +38,7 @@
             <!-- Scrollable page content -->
 
             <div class="page-content">
-              <div class="list-block">
+              <div class="list-block js-list-wrapper">
                 <ul class="js-list">
                   <li class="js-task-template">
                     <label class="label-checkbox item-content">
@@ -62,6 +64,7 @@
       </div>
     </div>
     <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="caravel.min.js"></script>
     <script type="text/javascript" src="framework7.min.js"></script>
     <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
     <!-- Path to your app js-->
