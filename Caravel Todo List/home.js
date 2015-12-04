@@ -38,6 +38,32 @@ $(document).on('ready', function() {
                         checkboxes[e.id] = v;
                         bus.post('Complete', {id: e.id, isCompleted: v});
                     });
+
+                    t.find('.js-edit').on('click', function() {
+                        framework7.prompt(
+                            "Enter a new label",
+                            "Edit task",
+                            function(value) {
+                                if (value.trim().length > 0) {
+                                    bus.post("Edit", { id: e.id, label: value });
+                                }
+                            },
+                            function() {} // Ignore
+                        );
+                        $('.modal-text-input').val(e.name)
+                    });
+
+                    t.find('.js-delete').on('click', function() {
+                        framework7.confirm(
+                            "Are you sure you want to delete " + e.label + "?",
+                            "Delete task",
+                            function() {
+                                bus.post("Delete", e.id);
+                            },
+                            function() {} // Ignore
+                        );
+                    });
+
                     taskList.append(t);
                 };
                 capture(data[i], template.clone());
@@ -50,7 +76,7 @@ $(document).on('ready', function() {
             "Enter a label",
             "Add a new task",
             function(value) {
-                if (value.trim().length != 0) {
+                if (value.trim().length > 0) {
                     bus.post("Add", value);
                 }
             },

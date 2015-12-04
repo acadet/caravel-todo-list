@@ -61,6 +61,32 @@ class ViewController: UIViewController {
                 }
             }
             
+            bus.register("Edit") { _, rawData in
+                let data = rawData as! NSDictionary
+                let id = data["id"] as! String
+                let label = data["label"] as! String
+                let realm = self.getRealm()
+                let task = realm.objects(Task).filter("id = '\(id)'").first!
+                
+                try! realm.write {
+                    task.label = label
+                }
+                
+                self.listTasks()
+            }
+            
+            bus.register("Delete") { _, rawId in
+                let id = rawId as! String
+                let realm = self.getRealm()
+                let task = realm.objects(Task).filter("id = '\(id)'").first!
+                
+                try! realm.write {
+                    realm.delete(task)
+                }
+                
+                self.listTasks()
+            }
+            
             self.listTasks()
         })
         

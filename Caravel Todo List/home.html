@@ -40,16 +40,22 @@
             <div class="page-content">
               <div class="list-block js-list-wrapper">
                 <ul class="js-list">
-                  <li class="js-task-template">
-                    <label class="label-checkbox item-content">
-                      <input type="checkbox" name="tasks">
-                      <div class="item-media">
-                        <i class="icon icon-form-checkbox"></i>
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title js-label"></div>
-                      </div>
-                    </label>
+                  <li class="swipeout js-task-template">
+                    <div class="swipeout-content">
+                      <label class="label-checkbox item-content">
+                        <input type="checkbox" name="tasks">
+                        <div class="item-media">
+                          <i class="icon icon-form-checkbox"></i>
+                        </div>
+                        <div class="item-inner">
+                          <div class="item-title js-label"></div>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="swipeout-actions-right">
+                      <a href="#" class="swipeout-close js-edit">Edit</a>
+                      <a href="#" class="bg-red swipeout-close js-delete">Delete</a>
+                    </div>
                   </li>
                 </ul>
               </div>
