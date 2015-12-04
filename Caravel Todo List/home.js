@@ -58,7 +58,7 @@ $(document).on('ready', function() {
                             function() {} // Ignore
                         );
                         $('.modal-text-input').val(e.label);
-                        event.preventDefault();
+                        event.stopPropagation();
                     });
 
                     t.find('.js-delete').on('click', function(event) {
@@ -70,7 +70,7 @@ $(document).on('ready', function() {
                             },
                             function() {} // Ignore
                         );
-                        event.preventDefault();
+                        event.stopPropagation();
                     });
 
                     taskList.append(t);
