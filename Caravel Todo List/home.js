@@ -57,6 +57,7 @@ $(document).on('ready', function() {
                             },
                             function() {} // Ignore
                         );
+                        framework7.swipeoutClose(t);
                         $('.modal-text-input').val(e.label);
                         event.stopPropagation();
                     });
@@ -70,6 +71,7 @@ $(document).on('ready', function() {
                             },
                             function() {} // Ignore
                         );
+                        framework7.swipeoutClose(t);
                         event.stopPropagation();
                     });
 
