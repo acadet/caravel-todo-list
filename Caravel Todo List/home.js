@@ -1,3 +1,4 @@
+// Framework7 initialization
 window.framework7 = new Framework7();
 window.$$ = Dom7;
 
@@ -14,17 +15,17 @@ $(document).on('ready', function() {
     });
 
     bus.register("Tasks", function(name, data) {
-        if (template == null) {
+        if (template == null) { // Extract template
             var t = $('.js-task-template');
             template = t.clone();
-            t.remove();
+            t.remove(); // Remove it from DOM tree
         }
 
         framework7.pullToRefreshDone();
         taskList.empty();
         checkboxes = {};
 
-        if (data.length == 0) {
+        if (data.length == 0) { // No task
             listWrapper.hide();
             noContent.show();
         } else {
@@ -39,6 +40,7 @@ $(document).on('ready', function() {
 
                     t.find('.js-label').text(e.label);
 
+                    // Store completion state for further update
                     checkboxes[e.id] = e.isCompleted;
                     t.on('click', function() {
                         var v = !checkboxes[e.id];
@@ -57,8 +59,10 @@ $(document).on('ready', function() {
                             },
                             function() {} // Ignore
                         );
-                        framework7.swipeoutClose(t);
+                        // Set input content
                         $('.modal-text-input').val(e.label);
+                        // Close manually swipeout actions
+                        framework7.swipeoutClose(t);
                         event.stopPropagation();
                     });
 
@@ -71,12 +75,16 @@ $(document).on('ready', function() {
                             },
                             function() {} // Ignore
                         );
+                        // Close manually swipeout actions
                         framework7.swipeoutClose(t);
                         event.stopPropagation();
                     });
 
                     taskList.append(t);
                 };
+
+                // As we are manipulating loop variables, they need to be captured
+                // before being used
                 capture(data[i], template.clone());
             }
         }
@@ -87,7 +95,7 @@ $(document).on('ready', function() {
             "Enter a label",
             "Add a new task",
             function(value) {
-                if (value.trim().length > 0) {
+                if (value.trim().length > 0) {  // Ignore empty values
                     bus.post("Add", value);
                 }
             },

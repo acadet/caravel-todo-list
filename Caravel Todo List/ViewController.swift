@@ -6,12 +6,14 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
+    // A weak reference is better for preventing any strong cycle reference
     private weak var bus: EventBus?
     
     func getRealm() -> Realm {
         var realm: Realm?
         
         try! realm = Realm()
+        // As used on another thread, it is preferable to refresh but not mandatory
         realm!.refresh()
         
         return realm!
@@ -20,7 +22,7 @@ class ViewController: UIViewController {
     func listTasks() {
         var outcome: [AnyObject] = []
         
-        let list = getRealm().objects(Task).sorted("label").map { $0 }
+        let list = getRealm().objects(Task).sorted("label")
         
         for e in list {
             outcome.append(["id": e.id, "label": e.label, "isCompleted": e.isCompleted])
@@ -47,6 +49,7 @@ class ViewController: UIViewController {
                 task.id = NSUUID().UUIDString
                 task.label = label
                 
+                // Any writing has to be done within a write block and with the same Realm instance
                 try! realm.write {
                     realm.add(task)
                 }
@@ -54,10 +57,12 @@ class ViewController: UIViewController {
             }
             
             bus.register("Complete") { _, rawData in
+                // We have to extract the data from the JSON dictionary
                 let data = rawData as! NSDictionary
                 let id = data["id"] as! String
                 let isCompleted = data["isCompleted"] as! Bool
                 let realm = self.getRealm()
+                // Assuming the id is correct, otherwise a crash is tolerable
                 let task = realm.objects(Task).filter("id = '\(id)'").first!
                 
                 try! realm.write {
@@ -76,7 +81,7 @@ class ViewController: UIViewController {
                     task.label = label
                 }
                 
-                self.listTasks()
+                self.listTasks() // Refresh task list
             }
             
             bus.register("Delete") { _, rawId in
@@ -91,6 +96,7 @@ class ViewController: UIViewController {
                 self.listTasks()
             }
             
+            // Post tasks as soon as the bus is ready
             self.listTasks()
         })
         
